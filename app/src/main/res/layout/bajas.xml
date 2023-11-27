@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EEEEEE"
+    tools:context=".Bajas">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dar de Baja un Par"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clave: "
+        android:textSize="20dp"
+        android:translationX="20dp"
+        android:translationY="40dp" />
+
+    <EditText
+        android:id="@+id/editClave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Inserta Clave de los Tenis"
+        android:textSize="20dp"
+        android:translationX="100dp"
+        android:translationY="10dp"
+        tools:background="#CCFFFF" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre: "
+        android:textSize="20dp"
+        android:translationX="20dp"
+        android:translationY="40dp" />
+
+    <EditText
+        android:id="@+id/editNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Inserta Nombre"
+        android:textSize="20dp"
+        android:translationX="100dp"
+        android:translationY="15dp"
+        tools:background="#CCFFFF" />
+    <Button
+        android:id="@+id/agregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#004400"
+        android:text="Eliminar"
+        android:translationX="250dp"
+        android:translationY="100dp" />
+
+    <Button
+        android:id="@+id/regresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#770000"
+        android:text="Regresar"
+        android:translationX="250dp"
+        android:translationY="100dp" />
+
+</LinearLayout>

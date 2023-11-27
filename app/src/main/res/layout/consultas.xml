@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#EEEEEE"
+    tools:context=".Consultas">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consulta"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clave: "
+        android:textSize="20dp"
+        android:translationX="20dp"
+        android:translationY="40dp" />
+
+    <EditText
+        android:id="@+id/editClave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Inserta Clave de los Tenis"
+        android:textSize="20dp"
+        android:translationX="100dp"
+        android:translationY="10dp"
+        tools:background="#CCFFFF" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre: "
+        android:textSize="20dp"
+        android:translationX="20dp"
+        android:translationY="40dp" />
+
+    <EditText
+        android:id="@+id/editNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:translationX="100dp"
+        android:translationY="15dp"
+        tools:background="#CCFFFF" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Marca"
+        android:textSize="20dp"
+        android:translationY="50dp" />
+
+    <Spinner
+        android:id="@+id/comboMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationY="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Selecciona Jugador"
+        android:textSize="20dp"
+        android:translationY="50dp" />
+
+    <Spinner
+        android:id="@+id/comboJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationY="60dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Elige la altura del Talon:"
+        android:textSize="20dp"
+        android:translationY="80dp" />
+
+    <RadioGroup
+        android:id="@+id/radiog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationY="80dp">
+
+        <RadioButton
+            android:id="@+id/radb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Bajo"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Medio"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/rada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Alto"
+            android:textSize="20dp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Precio:"
+        android:textSize="20dp"
+        android:translationY="80dp" />
+
+    <Spinner
+        android:id="@+id/comboPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationY="90dp" />
+
+    <Button
+        android:id="@+id/consultar"
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#04B4AE"
+        android:text="Consulta"
+        android:translationY="100dp" />
+
+    <Button
+        android:id="@+id/regresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#770000"
+        android:text="Regresar"
+        android:translationX="250dp"
+        android:translationY="100dp" />
+
+</LinearLayout>

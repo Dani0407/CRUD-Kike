@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -65,6 +66,83 @@ public class Consultas extends AppCompatActivity implements View.OnClickListener
                 android.R.layout.simple_spinner_item, llamada);
         comboPrecio.setOnItemSelectedListener(this);
         comboPrecio.setAdapter(adaptadito);
+
+        nombre.setEnabled(false);
+        comboMarca.setEnabled(false);
+        comboJugador.setEnabled(false);
+        rada.setEnabled(false);
+        radm.setEnabled(false);
+        radb.setEnabled(false);
+        comboPrecio.setEnabled(false);
+    }
+
+    public int Marquita(String ala){
+        int escoge = 0;
+        if (ala.equals("Nike")){
+            escoge = 1;
+        } else if (ala.equals("Adidas")) {
+            escoge = 2;
+        }
+        return escoge;
+    }
+    public int jugadorNike(String ala){
+        int escoge = 0;
+        if (ala.equals("LEBRON")){
+            escoge = 1;
+        } else if (ala.equals("JA")) {
+            escoge = 2;
+        }else if (ala.equals("KD")){
+            escoge = 3;
+        }
+        else if(ala.equals("GIANNIS")){
+            escoge = 4;
+        }
+        else if(ala.equals("KYRIE")){
+            escoge = 5;
+        }
+        else if(ala.equals("BOOKER")){
+            escoge = 6;
+        }
+
+        return escoge;
+    }
+    public int jugadorAdid(String ala){
+        int escoge = 0;
+        if (ala.equals("HARDEN")){
+            escoge = 1;
+        } else if (ala.equals("MICHEL")) {
+            escoge = 2;
+        }else if (ala.equals("DAME")){
+            escoge = 3;
+        }
+        else if(ala.equals("TRAE")){
+            escoge = 4;
+        }
+
+        return escoge;
+    }
+    public void talo (String ala){
+        if (ala.equals("Bajo")){
+            radb.setChecked(true);
+
+        }else if (ala.equals("Medio")){
+            radm.setChecked(true);
+        }
+        else if(ala.equals("Alto")){
+            rada.setChecked(true);
+        }
+    }
+    public int precio(String ala){
+        int escoge = 0;
+        if (ala.equals("$1000")){
+            escoge = 1;
+        } else if (ala.equals("$2000")) {
+            escoge = 2;
+        }else if (ala.equals("$3000")){
+            escoge = 3;
+        }
+
+        return escoge;
     }
 
     @Override
@@ -78,20 +156,43 @@ public class Consultas extends AppCompatActivity implements View.OnClickListener
             if(cadenita.equals("Consulta")){
                 String mensajito = "";
                 if (clave.equals("")) {
-                    mensajito = "debes llenar el dato";
+                    mensajito = "Debes llenar la clave del producto";
                 } else {
                     Base admin = new Base(this, "administrador", null, 1);
                     SQLiteDatabase basededatos = admin.getReadableDatabase();
                     String codiguito = clave.getText().toString();
-                    Cursor fila = basededatos.rawQuery("select nombre, marca,jugador,talon,precio from articulos where codigo = " + codiguito, null);
+                    Cursor fila = basededatos.rawQuery("select nombre, marca,jugador,talon,precio from articulos where clave = " + codiguito, null);
                     if(fila.moveToFirst()){
                         nombre.setText(fila.getString(0));
-                        comboMarca.setSelection(1);
+                        comboMarca.setSelection(Marquita(fila.getString(1)));
+                        if (fila.getString(1).equals("Nike")) {
+                            String[] jugadoresNike = {"LEBRON", "JA", "KD", "GIANNIS", "KYRIE", "BOOKER"};
+                            ArrayAdapter<String> listaAdapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, jugadoresNike);
+                            comboJugador.setAdapter(listaAdapter1);
+                            comboJugador.setSelection(jugadorNike(fila.getString(2)));
+                        } else if (fila.getString(1).equals("Adidas")) {
+                            String[] jugadoresAdidas = {"HARDEN", "MICHEL", "DAME", "TRAE"};
+                            ArrayAdapter<String> listaAdapter3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, jugadoresAdidas);
+                            comboJugador.setAdapter(listaAdapter3);
+                            comboJugador.setSelection(jugadorAdid(fila.getString(2)));
+                        }
+                        talo((fila.getString(3)));
+                        ArrayAdapter<String> listaAdapter5 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, llamada);
+                        comboPrecio.setAdapter(listaAdapter5);
+                        comboPrecio.setSelection(precio(fila.getString(4)));
+
                         mensajito = "estos son los datos";
                         basededatos.close();
                     }
-                    else
+                    else {
                         mensajito = "no existe el registro";
+                    }
+                    AlertDialog.Builder mensa = new AlertDialog.Builder(this);
+                    mensa.setTitle("DATOS ENCONTRADOS");
+                    mensa.setMessage(mensajito);
+                    mensa.setPositiveButton("Ok", null);
+                    AlertDialog dialog= mensa.create();
+                    dialog.show();
                 }
             }
     }

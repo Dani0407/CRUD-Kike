@@ -67,6 +67,16 @@ public class Altas extends AppCompatActivity implements AdapterView.OnItemSelect
 
 
     }
+    private void Limpito(){
+        nombre.setText("");
+        radiog.clearCheck();
+        nombre.setText("");
+        ArrayAdapter<String> limptodi = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+        limptodi.add("");
+        comboJugador.setAdapter(limptodi);
+        comboMarca.setAdapter(limptodi);
+        comboPrecio.setAdapter(limptodi);
+    }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -131,7 +141,7 @@ public class Altas extends AppCompatActivity implements AdapterView.OnItemSelect
                 basededatos.insert("articulos", null, registro);
                 basededatos.close();
                 Toast.makeText(this, "Articulo Dado de Alta", Toast.LENGTH_SHORT).show();
-
+                Limpito();
 
             }
 

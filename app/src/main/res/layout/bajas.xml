@@ -50,8 +50,22 @@
         android:translationX="100dp"
         android:translationY="15dp"
         tools:background="#CCFFFF" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Marca"
+        android:textSize="20dp"
+        android:translationY="50dp" />
+
+    <Spinner
+        android:id="@+id/comboMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationY="50dp" />
     <Button
-        android:id="@+id/agregar"
+        android:id="@+id/bajar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#004400"

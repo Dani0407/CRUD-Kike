@@ -34,7 +34,7 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Nombre: "
         android:textSize="20dp"
@@ -43,12 +43,12 @@
 
     <EditText
         android:id="@+id/editNombre"
-        android:layout_width="wrap_content"
+        android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:translationX="100dp"
         android:translationY="15dp"
-        tools:background="#CCFFFF" />
+        tools:background="#CCFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
